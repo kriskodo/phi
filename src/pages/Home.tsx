@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import PageWrap from '../components/PageWrap';
 import Reveal from '../components/Reveal';
 import GoldenSpiral from '../components/GoldenSpiral';
-import { menu } from '../data/menu';
+import GlassIcon from '../components/GlassIcon';
+import FlavorIcon from '../components/FlavorIcon';
+import { courses, toBgn } from '../data/menu';
 import { site } from '../data/site';
 import './Home.css';
 
@@ -25,7 +27,7 @@ const pillars = [
 ];
 
 export default function Home() {
-  const featured = menu[0].drinks.slice(0, 3);
+  const featured = courses[0].drinks.slice(0, 3);
 
   return (
     <PageWrap>
@@ -170,12 +172,16 @@ export default function Home() {
             {featured.map((d, i) => (
               <Reveal as="div" className="fcard glass" key={d.name} delay={i * 0.1}>
                 <div className="fcard__top">
-                  <span className="fcard__num">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="fcard__price">{d.price} лв</span>
+                  <span className="fcard__glass"><GlassIcon type={d.glass} size={40} /></span>
+                  <span className="fcard__price">{d.eur} EUR <small>/ {toBgn(d.eur)} BGN</small></span>
                 </div>
                 <h3 className="fcard__name">{d.name}</h3>
-                <p className="fcard__comp">{d.composition}</p>
-                {d.note && <p className="fcard__note">{d.note}</p>}
+                <p className="fcard__comp">{d.ingredients}</p>
+                <div className="fcard__flavors">
+                  {d.flavors.map((f) => (
+                    <span key={f} className="fcard__flavor"><FlavorIcon flavor={f} size={20} /></span>
+                  ))}
+                </div>
               </Reveal>
             ))}
           </div>

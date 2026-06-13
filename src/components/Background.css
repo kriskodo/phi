@@ -1,3 +1,5 @@
+/* Minimal pure-black atmosphere, like the real site —
+   just a breath of cyan and a faint golden-section grid. */
 .bg {
   position: fixed;
   inset: 0;
@@ -5,75 +7,75 @@
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(135% 100% at 50% -20%, #211826 0%, var(--bg) 58%),
+    radial-gradient(130% 90% at 50% -10%, #05080a 0%, var(--bg) 60%),
     var(--bg);
 }
 
-/* Large, painterly colour fields — a contemporary canvas behind the glass. */
 .bg__field {
   position: absolute;
-  border-radius: 48% 52% 56% 44% / 50% 46% 54% 50%;
-  filter: blur(70px);
-  opacity: 0.6;
+  border-radius: 50%;
+  filter: blur(90px);
   mix-blend-mode: screen;
   will-change: transform;
 }
 .bg__field--gold {
-  width: 56vw; height: 50vw;
-  top: -16vw; left: 50vw;
-  background: radial-gradient(circle, rgba(232, 184, 100, 0.55), transparent 64%);
-  animation: drift1 28s ease-in-out infinite;
+  width: 50vw; height: 46vw;
+  top: -16vw; left: 52vw;
+  opacity: 0.22;
+  background: radial-gradient(circle, rgba(95, 182, 214, 0.5), transparent 66%);
+  animation: drift1 30s ease-in-out infinite;
 }
 .bg__field--violet {
-  width: 50vw; height: 50vw;
-  top: 30vh; left: -16vw;
-  background: radial-gradient(circle, rgba(232, 80, 58, 0.42), transparent 64%); /* campari */
-  animation: drift2 34s ease-in-out infinite;
+  width: 44vw; height: 44vw;
+  top: 46vh; left: -14vw;
+  opacity: 0.16;
+  background: radial-gradient(circle, rgba(95, 182, 214, 0.38), transparent 66%);
+  animation: drift2 36s ease-in-out infinite;
 }
 .bg__field--teal {
-  width: 44vw; height: 44vw;
-  top: 62vh; left: 54vw;
-  background: radial-gradient(circle, rgba(116, 181, 156, 0.34), transparent 64%); /* botanical */
-  animation: drift3 31s ease-in-out infinite;
+  width: 40vw; height: 40vw;
+  top: 70vh; left: 56vw;
+  opacity: 0.14;
+  background: radial-gradient(circle, rgba(121, 199, 192, 0.34), transparent 66%);
+  animation: drift3 33s ease-in-out infinite;
 }
 
 @keyframes drift1 {
-  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  50% { transform: translate(-6vw, 8vh) scale(1.12) rotate(8deg); }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-5vw, 7vh) scale(1.1); }
 }
 @keyframes drift2 {
-  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  50% { transform: translate(8vw, -6vh) scale(1.1) rotate(-6deg); }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6vw, -5vh) scale(1.08); }
 }
 @keyframes drift3 {
-  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  50% { transform: translate(-7vw, -7vh) scale(1.15) rotate(10deg); }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6vw, -6vh) scale(1.12); }
 }
 
-/* faint golden-section grid */
 .bg__grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(232, 184, 100, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(232, 184, 100, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(95, 182, 214, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(95, 182, 214, 0.04) 1px, transparent 1px);
   background-size: 96px 96px;
-  mask-image: radial-gradient(120% 100% at 50% 0%, #000 0%, transparent 78%);
-  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 0%, transparent 78%);
-  opacity: 0.55;
+  mask-image: radial-gradient(120% 100% at 50% 0%, #000 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 0%, transparent 80%);
+  opacity: 0.5;
 }
 
 .bg__grain {
   position: absolute;
   inset: -50%;
-  opacity: 0.06;
+  opacity: 0.045;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .bg__vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(125% 125% at 50% 38%, transparent 52%, rgba(0, 0, 0, 0.62) 100%);
+  background: radial-gradient(125% 125% at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.7) 100%);
 }
 
 @media (prefers-reduced-motion: reduce) {

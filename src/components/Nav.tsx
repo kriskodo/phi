@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { site } from '../data/site';
+import PhiMark from './PhiMark';
 import './Nav.css';
 
 const links = [
@@ -37,8 +38,7 @@ export default function Nav() {
       <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
         <div className="nav__inner container">
           <Link to="/" className="nav__brand" aria-label="Phi — home">
-            <span className="nav__phi">φ</span>
-            <span className="nav__word">Phi</span>
+            <PhiMark size={30} />
           </Link>
 
           <nav className="nav__links" aria-label="Primary">

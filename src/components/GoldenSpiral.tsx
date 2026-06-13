@@ -34,9 +34,9 @@ export default function GoldenSpiral({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="spiralGold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#f4d99a" />
-          <stop offset="0.5" stopColor="#e8b864" />
-          <stop offset="1" stopColor="#c5883a" />
+          <stop offset="0" stopColor="#a6dcef" />
+          <stop offset="0.5" stopColor="#5fb6d6" />
+          <stop offset="1" stopColor="#3a8aa8" />
         </linearGradient>
       </defs>
 
@@ -47,8 +47,8 @@ export default function GoldenSpiral({ className }: { className?: string }) {
           y={r.y}
           width={r.w}
           height={r.h}
-          rx="2"
-          stroke="rgba(232,199,126,0.22)"
+          rx="1"
+          stroke="rgba(95,182,214,0.45)"
           strokeWidth="0.8"
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -65,7 +65,7 @@ export default function GoldenSpiral({ className }: { className?: string }) {
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{ delay: 0.6, duration: 2.6, ease: [0.4, 0, 0.2, 1] }}
-        style={{ filter: 'drop-shadow(0 0 10px rgba(232,199,126,0.5))' }}
+        style={{ filter: 'drop-shadow(0 0 10px rgba(95,182,214,0.55))' }}
       />
     </svg>
   );

@@ -21,7 +21,8 @@
   gap: 1.5rem;
 }
 
-.nav__brand { display: inline-flex; align-items: baseline; gap: 0.5rem; }
+.nav__brand { display: inline-flex; align-items: center; color: var(--gold-light); transition: color 0.3s ease, transform 0.4s ease; }
+.nav__brand:hover { color: #d8f1fb; transform: translateY(-1px); }
 .nav__phi {
   font-family: var(--display);
   font-style: italic;

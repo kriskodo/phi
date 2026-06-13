@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { site } from '../data/site';
+import PhiMark from './PhiMark';
 import './Footer.css';
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
       <div className="footer__rule container" />
       <div className="footer__inner container">
         <div className="footer__brand">
-          <span className="footer__phi">φ</span>
+          <span className="footer__phi"><PhiMark size={40} /></span>
           <p className="footer__tag">{site.tagline}</p>
         </div>
 

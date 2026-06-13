@@ -1,54 +1,56 @@
 /* ============================================================
    Phi — design tokens & base
-   Obsidian night · champagne gold · refracted glass
+   Pure black · thin cyan monoline · contemporary art
+   (matched to phithebar.com's identity)
    ============================================================ */
 
 :root {
-  /* Surfaces — deep plum-espresso, warm rather than flat black */
-  --bg: #130e16;
-  --bg-2: #1b141f;
-  --bg-3: #251a2b;
+  /* Surfaces — pure black, like the real site */
+  --bg: #000003;
+  --bg-2: #07080b;
+  --bg-3: #0d1014;
 
-  /* Ink — warm bone */
-  --ink: #f2eadd;
-  --ink-soft: rgba(242, 234, 221, 0.64);
-  --ink-faint: rgba(242, 234, 221, 0.40);
-  --ink-ghost: rgba(242, 234, 221, 0.15);
+  /* Ink — cool near-white */
+  --ink: #eef3f4;
+  --ink-soft: rgba(238, 243, 244, 0.60);
+  --ink-faint: rgba(238, 243, 244, 0.38);
+  --ink-ghost: rgba(238, 243, 244, 0.14);
 
-  /* Vermouth amber — the φ / balance signature (still "gold" in code) */
-  --gold: #e8b864;
-  --gold-deep: #c5883a;
-  --gold-light: #f4d99a;
+  /* Cyan — the monoline signature. (Kept under the --gold* names so
+     every existing rule picks up the new accent without churn.) */
+  --gold: #5fb6d6;
+  --gold-deep: #3a8aa8;
+  --gold-light: #a6dcef;
 
-  /* Negroni palette — the contemporary-art splashes that glass refracts */
-  --campari: #e8503a;   /* red-orange — live / interactive emphasis */
-  --campari-deep: #c23721;
-  --botanical: #74b59c; /* bitter green — fresh / zero proof */
-  --violet: #9c8bd6;
-  --rose: #e0a0a8;
+  /* Secondary accents, all tuned to the cyan family for a monochrome look */
+  --campari: #5fb6d6;
+  --campari-deep: #3a8aa8;
+  --botanical: #79c7c0;
+  --violet: #8fb8e0;
+  --rose: #a6dcef;
 
-  /* Glass */
-  --glass: rgba(255, 255, 255, 0.045);
-  --glass-strong: rgba(255, 255, 255, 0.075);
-  --glass-brd: rgba(255, 255, 255, 0.10);
-  --glass-brd-strong: rgba(255, 255, 255, 0.18);
-  --line: rgba(244, 239, 230, 0.10);
+  /* Glass — kept subtle so the look stays minimal */
+  --glass: rgba(255, 255, 255, 0.028);
+  --glass-strong: rgba(255, 255, 255, 0.05);
+  --glass-brd: rgba(143, 200, 220, 0.14);
+  --glass-brd-strong: rgba(143, 200, 220, 0.32);
+  --line: rgba(238, 243, 244, 0.10);
 
-  /* Type */
-  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  /* Type — thin geometric display, like the original */
+  --display: 'Jost', 'Inter', system-ui, sans-serif;
   --body: 'Inter', system-ui, sans-serif;
   --label: 'Space Grotesk', 'Inter', sans-serif;
 
   /* Rhythm — tuned around φ */
   --phi: 1.618;
-  --rad: 22px;
-  --rad-lg: 30px;
+  --rad: 18px;
+  --rad-lg: 26px;
   --pad-x: clamp(1.25rem, 5vw, 6rem);
   --maxw: 1240px;
 
-  --shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.9);
-  --glow-gold: 0 0 80px -20px rgba(232, 184, 100, 0.40);
-  --glow-campari: 0 0 70px -20px rgba(232, 80, 58, 0.45);
+  --shadow: 0 30px 80px -45px rgba(0, 0, 0, 0.95);
+  --glow-gold: 0 0 70px -24px rgba(95, 182, 214, 0.40);
+  --glow-campari: 0 0 60px -24px rgba(95, 182, 214, 0.40);
 
   color-scheme: dark;
 }
@@ -76,14 +78,14 @@ body {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 img { max-width: 100%; display: block; }
-::selection { background: var(--gold); color: #0a0a0e; }
+::selection { background: var(--gold); color: #001016; }
 
 /* ---- Typographic primitives ---- */
 .display {
   font-family: var(--display);
   font-weight: 300;
-  line-height: 0.98;
-  letter-spacing: -0.02em;
+  line-height: 1.02;
+  letter-spacing: 0.005em;
 }
 .eyebrow {
   font-family: var(--label);
@@ -96,7 +98,7 @@ img { max-width: 100%; display: block; }
 .lead { color: var(--ink-soft); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.7; }
 
 .gold-text {
-  background: linear-gradient(120deg, var(--gold-light), var(--gold) 40%, var(--gold-deep));
+  background: linear-gradient(120deg, var(--gold-light), var(--gold) 45%, var(--gold-deep));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -106,41 +108,41 @@ img { max-width: 100%; display: block; }
 .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad-x); }
 .section { padding-block: clamp(4.5rem, 10vw, 9rem); position: relative; }
 
-/* ---- Glass surface ---- */
+/* ---- Glass surface (subtle) ---- */
 .glass {
   background: var(--glass);
   border: 1px solid var(--glass-brd);
-  backdrop-filter: blur(26px) saturate(150%);
-  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
   border-radius: var(--rad);
-  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-/* ---- Buttons ---- */
+/* ---- Buttons — thin monoline, like the brand ---- */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   font-family: var(--label);
   font-weight: 500;
-  font-size: 0.86rem;
-  letter-spacing: 0.06em;
-  padding: 0.95rem 1.7rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.6rem;
   border-radius: 100px;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s, background 0.4s, color 0.4s;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s, background 0.4s, color 0.4s, border-color 0.4s;
   will-change: transform;
 }
 .btn-gold {
-  background: linear-gradient(120deg, var(--gold-light), var(--gold) 55%, var(--gold-deep));
-  color: #0a0a0e;
-  box-shadow: 0 14px 40px -16px rgba(232, 199, 126, 0.7);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  background: rgba(95, 182, 214, 0.06);
+  box-shadow: 0 0 0 rgba(95, 182, 214, 0);
 }
-.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 22px 54px -16px rgba(232, 199, 126, 0.85); }
+.btn-gold:hover { transform: translateY(-3px); background: rgba(95, 182, 214, 0.14); box-shadow: var(--glow-gold); }
 .btn-ghost {
   border: 1px solid var(--glass-brd-strong);
-  background: var(--glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
   color: var(--ink);
 }
 .btn-ghost:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold-light); }
