@@ -1,0 +1,156 @@
+/* ============================================================
+   Phi — design tokens & base
+   Obsidian night · champagne gold · refracted glass
+   ============================================================ */
+
+:root {
+  /* Surfaces — deep plum-espresso, warm rather than flat black */
+  --bg: #130e16;
+  --bg-2: #1b141f;
+  --bg-3: #251a2b;
+
+  /* Ink — warm bone */
+  --ink: #f2eadd;
+  --ink-soft: rgba(242, 234, 221, 0.64);
+  --ink-faint: rgba(242, 234, 221, 0.40);
+  --ink-ghost: rgba(242, 234, 221, 0.15);
+
+  /* Vermouth amber — the φ / balance signature (still "gold" in code) */
+  --gold: #e8b864;
+  --gold-deep: #c5883a;
+  --gold-light: #f4d99a;
+
+  /* Negroni palette — the contemporary-art splashes that glass refracts */
+  --campari: #e8503a;   /* red-orange — live / interactive emphasis */
+  --campari-deep: #c23721;
+  --botanical: #74b59c; /* bitter green — fresh / zero proof */
+  --violet: #9c8bd6;
+  --rose: #e0a0a8;
+
+  /* Glass */
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-strong: rgba(255, 255, 255, 0.075);
+  --glass-brd: rgba(255, 255, 255, 0.10);
+  --glass-brd-strong: rgba(255, 255, 255, 0.18);
+  --line: rgba(244, 239, 230, 0.10);
+
+  /* Type */
+  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --body: 'Inter', system-ui, sans-serif;
+  --label: 'Space Grotesk', 'Inter', sans-serif;
+
+  /* Rhythm — tuned around φ */
+  --phi: 1.618;
+  --rad: 22px;
+  --rad-lg: 30px;
+  --pad-x: clamp(1.25rem, 5vw, 6rem);
+  --maxw: 1240px;
+
+  --shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.9);
+  --glow-gold: 0 0 80px -20px rgba(232, 184, 100, 0.40);
+  --glow-campari: 0 0 70px -20px rgba(232, 80, 58, 0.45);
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+#root { position: relative; z-index: 1; isolation: isolate; }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+img { max-width: 100%; display: block; }
+::selection { background: var(--gold); color: #0a0a0e; }
+
+/* ---- Typographic primitives ---- */
+.display {
+  font-family: var(--display);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+.eyebrow {
+  font-family: var(--label);
+  text-transform: uppercase;
+  letter-spacing: 0.34em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+.lead { color: var(--ink-soft); font-size: clamp(1.05rem, 1.4vw, 1.22rem); line-height: 1.7; }
+
+.gold-text {
+  background: linear-gradient(120deg, var(--gold-light), var(--gold) 40%, var(--gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Layout helpers ---- */
+.container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad-x); }
+.section { padding-block: clamp(4.5rem, 10vw, 9rem); position: relative; }
+
+/* ---- Glass surface ---- */
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-brd);
+  backdrop-filter: blur(26px) saturate(150%);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  border-radius: var(--rad);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--label);
+  font-weight: 500;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  padding: 0.95rem 1.7rem;
+  border-radius: 100px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s, background 0.4s, color 0.4s;
+  will-change: transform;
+}
+.btn-gold {
+  background: linear-gradient(120deg, var(--gold-light), var(--gold) 55%, var(--gold-deep));
+  color: #0a0a0e;
+  box-shadow: 0 14px 40px -16px rgba(232, 199, 126, 0.7);
+}
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 22px 54px -16px rgba(232, 199, 126, 0.85); }
+.btn-ghost {
+  border: 1px solid var(--glass-brd-strong);
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--ink);
+}
+.btn-ghost:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold-light); }
+
+.btn .arrow { transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* ---- Accessibility ---- */
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
